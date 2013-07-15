@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 11:23:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.metecyu.flow.model.Task" table="f_task" catalog="flexflow">
+        <id name="id" type="string">
+            <column name="id" length="200" />
+            <generator class="uuid.hex"></generator>
+        </id>
+        <many-to-one name="flowInstance" class="com.metecyu.flow.model.FlowInstance" fetch="select">
+            <column name="proInsId" length="200" />
+        </many-to-one>
+        <property name="taskname" type="string">
+            <column name="taskname" length="200" />
+        </property>
+        <property name="assignuserid" type="string">
+            <column name="assignuserid" length="200" />
+        </property>
+        <property name="createtime" type="date">
+            <column name="createtime" length="10" />
+        </property>
+        <property name="endtime" type="date">
+            <column name="endtime" length="10" />
+        </property>
+        <property name="isopen" type="string">
+            <column name="isopen" length="200" />
+        </property>
+        <property name="submituserid" type="string">
+            <column name="submituserid" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
