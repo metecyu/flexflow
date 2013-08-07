@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 11:23:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.metecyu.flow.model.Node" table="f_node" catalog="flexflow">
+        <id name="id" type="string">
+            <column name="id" length="200" />
+            <generator class="uuid.hex"></generator>
+        </id>
+        <many-to-one name="flowdef" class="com.metecyu.flow.model.Flowdef" fetch="select">
+            <column name="flowdefid" length="200" />
+        </many-to-one>
+        <property name="nodename" type="string">
+            <column name="nodename" length="200" />
+        </property>
+        <property name="nodeno" type="string">
+            <column name="nodeno" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

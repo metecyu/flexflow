@@ -1,0 +1,154 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="info"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p - %C.%M(%L) %d{HH:MM:ss} | %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="logFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/oa.log"></param>
+		<param name="Threshold" value="INFO"></param>
+		<param name="Append" value="true"></param>
+		<param name="Encoding" value="UTF-8"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %p - %C.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<appender name="jbpmlogFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/jbpmplus.log"></param>
+		<param name="Threshold" value="INFO"></param>
+		<param name="Append" value="true"></param>
+		<param name="Encoding" value="UTF-8"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %p - %C.%M(%L) | %m%n" />
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd-HH:mm:ss,SSS} %t-%C{2}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	
+	
+	<appender name="hibernateLogFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/oa-hibernate.log"></param>
+		<param name="Threshold" value="INFO"></param>
+		<param name="Append" value="true"></param>
+		<param name="Encoding" value="UTF-8"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyy/MMM/dd-HH:mm:ss,SSS} %p - %C{3}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="springLogFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/oa-spring.log"></param>
+		<param name="Threshold" value="INFO"></param>
+		<param name="Append" value="true"></param>
+		<param name="Encoding" value="UTF-8"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyy/MMM/dd-HH:mm:ss,SSS} %p - %C{3}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="error" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/oa-error.log"></param>
+		<param name="Threshold" value="error"></param>
+		<param name="Encoding" value="UTF-8"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyy/MMM/dd-HH:mm:ss,SSS} %t-%C{2}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="timeCost" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs/oa-timecost.log"></param>
+		<param name="Threshold" value="debug"></param>
+		<param name="Append" value="true"></param>
+		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyy/MMM/dd-HH:mm:ss,SSS} %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="org.hibernate">
+		<level value="error" />
+		<appender-ref ref="hibernateLogFile" />
+	</logger>
+	
+	<logger name="org.hibernate.tool.hbm2ddl">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.hibernate.cache">
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	
+	<logger name="org.hsqldb">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.apache.commons.httpclient">
+		<level value="INFO" />
+	</logger>
+	
+	<logger name="org.mortbay.http">
+		<level value="INFO" />
+	</logger>
+	
+	<logger name="org.springframework">
+		<level value="error" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="springLogFile" />
+	</logger>
+	
+	
+	<logger name="com.opensymphony.module.sitemesh">
+		<level value="debug" />
+	</logger>
+	
+	<!-- 系统自己的 -->
+	<logger name="com.megait.oa">
+		<level value="debug" />
+		<appender-ref ref="logFile" />
+	</logger>
+	
+	<logger name="com.megait.oa.controller">
+		<level value="debug" />
+		<appender-ref ref="logFile" />
+	</logger>
+	
+	<logger name="jbpmplus.commonAssignment">
+		<level value="debug" />
+		<appender-ref ref="logFile" />
+	</logger>
+	
+	<logger name="edu.yale">
+		<level value="error" />
+		<appender-ref ref="logFile" />
+	</logger>
+	
+	
+	
+	<logger name="com.wxzc" additivity="false">
+		<level value="debug" />
+		
+		<appender-ref ref="logFile" />
+	</logger>
+	
+	<logger name="jbpmplus.logsign">
+		<level value="info" />
+		<appender-ref ref="jbpmlogFile" />
+	</logger>
+	
+	
+	
+	
+	
+	<root>
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="error" />
+	</root>
+
+</log4j:configuration>

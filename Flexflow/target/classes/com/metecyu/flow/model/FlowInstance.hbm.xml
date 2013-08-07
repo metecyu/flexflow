@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 11:23:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.metecyu.flow.model.FlowInstance" table="f_flowinstance" catalog="flexflow">
+        <id name="id" type="string">
+            <column name="id" length="200" />
+            <generator class="uuid.hex"></generator>
+        </id>
+        <many-to-one name="flowdef" class="com.metecyu.flow.model.Flowdef" fetch="select">
+            <column name="flowdefid" length="200" />
+        </many-to-one>
+        <property name="flowname" type="string">
+            <column name="flowname" length="200" />
+        </property>
+        <property name="createtime" type="date">
+            <column name="createtime" length="10" />
+        </property>
+        <property name="endtime" type="date">
+            <column name="endtime" length="10" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="200" />
+        </property>
+        <property name="currnode" type="string">
+            <column name="currnode" length="200" />
+        </property>
+        <set name="tasks" table="f_task" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="proInsId" length="200" />
+            </key>
+            <one-to-many class="com.metecyu.flow.model.Task" />
+        </set>
+    </class>
+</hibernate-mapping>
