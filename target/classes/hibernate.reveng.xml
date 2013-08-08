@@ -2,13 +2,11 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-	<type-mapping>
-		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
-		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
-		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
-		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
-	</type-mapping>
-	<table-filter match-catalog="flexflow" match-name="f_flowdef" />
+<type-mapping>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"></sql-type>
+</type-mapping>
+<table-filter match-catalog="flexflow" match-name="f_flowdef" />
 	<table-filter match-catalog="flexflow" match-name="f_flowinstance" />
 	<table-filter match-catalog="flexflow" match-name="f_node" />
 

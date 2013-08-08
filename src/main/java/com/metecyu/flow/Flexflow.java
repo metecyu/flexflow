@@ -2,7 +2,7 @@ package com.metecyu.flow;
 
 public class Flexflow {
 	/**
-	 * Æô¶¯Á÷³Ì
+	 * å¯åŠ¨æµç¨‹
 	 * @param userid
 	 * @param flowname
 	 * @param docid
@@ -13,7 +13,7 @@ public class Flexflow {
 		return flowid;
 	}
 	
-	public String nextNode(String taskid,String userid){
+	public String nextNode(String fInsid,String userid){
 		String flowid = "mockTaskid";
 		return flowid;
 	}

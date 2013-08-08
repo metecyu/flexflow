@@ -1,6 +1,6 @@
 package com.metecyu.flow.model;
 
-// Generated 2013-7-15 11:23:12 by Hibernate Tools 3.4.0.CR1
+// Generated 11-八月-13 下午 05:40 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
